@@ -11,11 +11,17 @@ export default class Lafoo extends React.Component {
 
       _moveCat = () => {
         Animated.spring(this.moveAnimation, {
-          toValue: {x: 700, y: 25},
+          toValue: {x: 600, y: -15},
         }).start()
+     
       }
 
     render(){
+        Animated.timing(this.moveAnimation, {
+            toValue: {x: 600, y: 25},
+            delay: 500,
+            duration: 4000
+        }).start()
         return(
             <Animated.View style={[this.moveAnimation.getLayout()]}>
                 <TouchableWithoutFeedback onPress={this._moveCat}>
